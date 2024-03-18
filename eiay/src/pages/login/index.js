@@ -25,7 +25,7 @@ function Login(props) {
 
 //把store里的数据映射到props
 const mapStateToProps = (state) => ({
-    myData: state.login.myData,
+    myData: state.myData,
 })
 
 // 把store的Dispatch映射到组件的props

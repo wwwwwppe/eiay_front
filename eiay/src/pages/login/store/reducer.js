@@ -1,8 +1,13 @@
 import * as contants from './contants'
+import { fromJS } from 'immutable'
 
 // 初始默认的state
-const defaultState = {
+const defaultState = fromJS({
     myData: null
+})
+
+const getData = (state, action) => {
+    return state.set('myData', action.data)
 }
 
 const reducer = (state = defaultState, action) => {
@@ -11,7 +16,7 @@ const reducer = (state = defaultState, action) => {
     switch(action.type) {
         case contants.SET_DATA:
             newState.myData = action.data
-            return newState
+            return getData(state, action)
         default:
             return state
     }
