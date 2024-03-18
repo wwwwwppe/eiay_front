@@ -1,15 +1,20 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Login from "./pages/login";
+import Home from "./pages/home";
+import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
 
 function App() {
 	return (
-		<frameElement>
-			<div>
-				<h1>React App</h1>
-			</div>
-			<div>
-				<h1>React App too</h1>
-			</div>
-		</frameElement>
+		<Fragment>
+			<HashRouter>
+			<Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/" element={<Login />} />
+                    <Route path="*" element={<Navigate to="/home" />} />
+                </Routes>
+			</HashRouter>
+		</Fragment>
 	);
 }
 
